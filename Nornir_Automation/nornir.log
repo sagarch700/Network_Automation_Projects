@@ -27,3 +27,176 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
 
 
 2024-02-27 23:07:46,635 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:12:35,522 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:13:40,025 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:14:50,917 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:15:15,717 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:19:50,474 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:20:33,050 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:20:33,665 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/paramiko/transport.py", line 2327, in _check_banner
+    buf = self.packetizer.readline(timeout)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/paramiko/packet.py", line 381, in readline
+    buf += self._read_timeout(timeout)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/paramiko/packet.py", line 618, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/netmiko/base_connection.py", line 1137, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/paramiko/client.py", line 451, in connect
+    t.start_client(timeout=timeout)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/paramiko/transport.py", line 738, in start_client
+    raise e
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/paramiko/transport.py", line 2143, in run
+    self._check_banner()
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/paramiko/transport.py", line 2331, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/napalm/pyIOSXR/iosxr.py", line 186, in open
+    self.device = ConnectHandler(
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 399, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/netmiko/base_connection.py", line 488, in __init__
+    self._open()
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/netmiko/base_connection.py", line 493, in _open
+    self.establish_connection()
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/netmiko/cisco/cisco_xr.py", line 11, in establish_connection
+    super().establish_connection(width=width, height=height)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/netmiko/base_connection.py", line 1190, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: 
+A paramiko SSHException occurred during connection creation:
+
+Error reading SSH protocol banner
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/napalm/iosxr/iosxr.py", line 79, in open
+    self.device.open()
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/napalm/pyIOSXR/iosxr.py", line 199, in open
+    raise ConnectError(t_err.args[0])
+napalm.pyIOSXR.exceptions.ConnectError: 
+A paramiko SSHException occurred during connection creation:
+
+Error reading SSH protocol banner
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/napalm/iosxr/iosxr.py", line 82, in open
+    raise ConnectionException(conn_err.args[0])
+napalm.base.exceptions.ConnectionException: 
+A paramiko SSHException occurred during connection creation:
+
+Error reading SSH protocol banner
+
+
+
+2024-02-27 23:20:33,666 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'pull_info' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/Nornir_Automation/runbook_napalm.py", line 8, in pull_info
+    task.run(task = napalm_get, getters = ["get_interfaces"])
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2024-02-27 23:20:44,850 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:21:21,070 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:26:33,500 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:27:01,227 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:27:39,029 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:28:06,244 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:30:38,774 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:31:19,069 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:31:29,150 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'pull_info' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/Nornir_Automation/runbook_napalm.py", line 9, in pull_info
+    interface_info = result.get("get_interfaces", {})
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/task.py", line 255, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'get'
+
+2024-02-27 23:32:14,644 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:32:24,672 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'pull_info' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/Nornir_Automation/runbook_napalm.py", line 9, in pull_info
+    interface_info = result["get_interfaces"]
+TypeError: list indices must be integers or slices, not str
+
+2024-02-27 23:33:04,116 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:33:14,513 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'pull_info' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/Nornir_Automation/runbook_napalm.py", line 9, in pull_info
+    interface_info = result.dict()
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/task.py", line 255, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'dict'
+
+2024-02-27 23:36:01,526 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:36:11,670 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'pull_info' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/Nornir_Automation/runbook_napalm.py", line 9, in pull_info
+    interface_info = result.items()
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/task.py", line 255, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'items'
+
+2024-02-27 23:36:55,836 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:37:05,948 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'pull_info' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/Nornir_Automation/runbook_napalm.py", line 9, in pull_info
+    return result["GigabitEthernet0/0/0/0"]
+TypeError: list indices must be integers or slices, not str
+
+2024-02-27 23:38:03,750 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:38:53,523 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:39:03,513 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'pull_info' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/Nornir_Automation/runbook_napalm.py", line 9, in pull_info
+    return result[0]['get_interfaces']
+TypeError: 'Result' object is not subscriptable
+
+2024-02-27 23:42:56,907 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:44:02,901 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:45:34,531 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:46:31,421 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:47:01,716 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
