@@ -9,6 +9,9 @@ def pull_info(task):
 
 results = nr.run(task = pull_info)
 
+# results["hostname"]
+# results["hostname"][0] to check for the pass or fail status
+
 # Parsing the data is tricky, so follow the below steps
 # nornir gives and aggregated result, to get the result of a specific device use its hostname and [1] .result converts the output to string
 parsing = results["R4"][1].result
