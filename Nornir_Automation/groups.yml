@@ -1,14 +1,18 @@
 ---
 
-test_group1:
-    username: "xcrs"
-    password: "cisco"
-    data:
-        ntp_server: "4.4.4.4"
+# test_group1:
+#     username: "xcrs"
+#     password: "cisco"
+#     data:
+#         ntp_server: "4.4.4.4"
 
-test_group2:
-    username: "xcrs"
-    password: "Cisco123"
-    data:
-        ntp_server: "8.8.8.8"
-        
+# test_group2:
+#     username: "xcrs"
+#     password: "Cisco123"
+#     data:
+#         ntp_server: "8.8.8.8"
+
+sandbox:
+    username: "admin"
+    password: "C1sco12345"
+

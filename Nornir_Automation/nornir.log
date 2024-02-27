@@ -1,0 +1,29 @@
+2024-02-27 23:06:04,526 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
+2024-02-27 23:06:04,532 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "ioxr". Is the library installed?
+
+2024-02-27 23:06:04,533 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'pull_info' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/Nornir_Automation/runbook_napalm.py", line 8, in pull_info
+    task.run(task = napalm_get, getters = ["get_facts"])
+  File "/Users/sagarch/Desktop/Vs Code/Network_Automation_Projects/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2024-02-27 23:07:46,635 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 1 hosts
