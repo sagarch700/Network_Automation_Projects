@@ -1,0 +1,3 @@
+show version
+show ip int bri
+show ntp associations
