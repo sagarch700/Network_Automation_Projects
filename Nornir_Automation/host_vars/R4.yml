@@ -1,0 +1,5 @@
+---
+
+snmp:
+    snmp_community: "xcrs"
+    
