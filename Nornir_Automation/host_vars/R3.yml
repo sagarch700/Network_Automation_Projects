@@ -1,0 +1,19 @@
+---
+
+snmp:
+    snmp_community: "xcrs"
+
+NTP:
+    server: "8.8.8.8"
+
+bgp:
+    asn: "65001"
+    rid: "3.3.3.3"
+    update_source: "loopback0"
+    route_reflector: True
+    peer_group: "RR_CLIENTS"
+    neighbors:
+        - 1.1.1.1
+        - 2.2.2.2
+        - 4.4.4.4
+      
