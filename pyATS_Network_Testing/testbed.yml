@@ -1,0 +1,53 @@
+devices:
+  Leaf3:
+    connections:
+      cli:
+        ip: 10.10.10.103
+        protocol: ssh
+    credentials:
+      default:
+        password: C1sco12345
+        username: xcrs
+      enable:
+        password: CCisco
+    os: iosxe
+    type: iosxe
+  Leaf4:
+    connections:
+      cli:
+        ip: 10.10.10.104
+        protocol: ssh
+    credentials:
+      default:
+        password: C1sco12345
+        username: xcrs
+      enable:
+        password: CCisco
+    os: iosxe
+    type: iosxe
+  Spine1:
+    connections:
+      cli:
+        ip: 10.10.10.1
+        protocol: ssh
+    credentials:
+      default:
+        password: C1sco12345
+        username: xcrs
+      enable:
+        password: CCisco
+    os: iosxe
+    type: iosxe
+  Spine2:
+    connections:
+      cli:
+        ip: 10.10.10.2
+        protocol: ssh
+    credentials:
+      default:
+        password: C1sco12345
+        username: xcrs
+      enable:
+        password: CCisco
+    os: iosxe
+    type: iosxe

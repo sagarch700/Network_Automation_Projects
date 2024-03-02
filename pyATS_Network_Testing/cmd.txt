@@ -1,0 +1,4 @@
+pyats create testbed interactive --output=testbed.yml --> this creates your inventory.yml file
+pyats learn interface --testbed-file testbed.yml --output interface-before --> this will get the interface state of the inventory
+pyats learn ospf --testbed-file testbed.yml --output ospf-before --> collects and creates ospf-before directory
+ 

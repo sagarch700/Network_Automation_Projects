@@ -1,0 +1,35 @@
+from genie.testbed import load
+import json
+from rich import print as rprint
+# import pcall for multiprocessing
+from pyats.async_ import pcall
+
+
+# Task1: linear output
+testbed = load("testbed.yml")
+# dev = testbed.devices["Spine1"]
+# dev.connect(log_stdout = False)
+# ospf_neighbors = dev.parse("show ip ospf neighbors")
+# print(ospf_neighbors)
+
+for name in testbed.devices.keys():
+    dev = testbed.devices[name]
+    dev.connect(log_stdout = False)
+    interfaces = dev.parse("show interfaces")
+    print(interfaces)
+    pretty_interfaces = json.dumps(interfaces, indent= 2)
+    rprint(f"{name}\n{pretty_interfaces}\n\n")
+
+# Task2: Multi processing
+
+def get_ospf(dev_name, testbed_value):
+    ospf_neighbor = testbed_value.parse("show ip ospf neighbor")
+    pretty_ospf = json.dumps(ospf_neighbor, indent= 2)
+    rprint(f"{dev_name}\n{pretty_ospf}\n\n")
+
+testbed = load("testbed.yml")
+testbed.connect(log_stdout = False)
+results = pcall(get_ospf, dev_name = testbed.devices.keys(), testbed_value = testbed.devices.values())
+
+
+    
